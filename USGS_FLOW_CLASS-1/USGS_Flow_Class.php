@@ -640,10 +640,10 @@ if (!class_exists('USGS_Flow_Class')) {
                         <thead> 
                         <tr> 
                         <th style="width:200px;"><span style="font-size: large;"><strong>Run</strong></span><br /> 
-                        <span style="font-size: .7em">[ click for more information ]</span></th> 
+                        <span style="font-size: .7em">[ click for details ]</span></th> 
                         <th><span style="font-size: large;"><strong>Class</strong></span></th> 
                         <th style="text-align:center; padding:1px; white-space:nowrap; max-width:100px;"><strong><span style="font-size: 1em;">Current Level</span><br /> 
-                        </strong></span><span style="font-size: .7em;">[ click for information ]</span></th>
+                        </strong></span><span style="font-size: .7em;">[ click for details ]</span></th>
                         <th class="althage-table-sorter-one"><span style="font-size: 1em;"><strong><span><span>Boatable Flows</span></span></strong></span></th> 
                         <th class="althage-table-sorter-one"><strong><span style="font-size: large;">Weather</span></strong></th> 
                         <th class="althage-table-sorter-one"><span style="font-size: 1em;"><span><strong>Time from DC</strong><span style="font-size: .7em"><br/>[ the White House ]</span></span></span></th> 
@@ -950,7 +950,7 @@ return $html;
                         }
                             
                         $html .= '</tbody></table>
-                            <span style="font-size:x-small;text-transform:uppercase">Last Updated: ';
+                            <span class="lastUpdated" style="font-size:.8em;text-transform:uppercase">Last Updated: ';
                             if(get_option('last_flow_update') == ''){$html .="Never";} else{ $html .= date('m-d-y h:i:s', get_option('last_flow_update'));}
                             $html .= '</span><br/><br/>';
                                                         
