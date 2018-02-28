@@ -1,0 +1,31 @@
+<?php
+print('starting')
+mysqli_connect("localhost","dckayakc_wrd2","TmXLz4noBY", "dckayakc_wrd2");
+ 
+$q=mysqli_query("Select id, name, description, upperlevel, lowerlevel, ideal, latitude, longitude FROM wp_playspots");
+while($e=mysqli_fetch_assoc($q))
+        $playspots[]=$e;
+
+
+$levelQuery=mysqli_query("SELECT latestlevel FROM `wp_flowrates` WHERE siteid = 01646500 LIMIT 1");
+$latestLevel= mysqli_fetch_object($levelQuery)->latestLevel;
+
+$fp = fopen('playspots.csv', 'w');
+
+fputcsv($fp, array('id', 'name', 'description', 'upperlevel', 'lowerlevel', 'ideal', 'latitude', 'longitude', 'display'))
+
+ foreach ($playspots $spot) {
+ 	if ($latestLevel < $spot[4]) {
+ 		$spot[]= 'red'
+ 	} elseif ($latestLevel >= $spot[4] and $latestLevel <= $spot[3]) {
+ 		$spot[] = 'green'
+ 	} elseif ($latestLevel > $spot[3]) {
+ 		$spot[] = 'blue'
+ 	}
+ 	fputcsv($fp, $spot)
+}
+ 
+fclose($fp)
+ 
+mysql_close();
+?>
