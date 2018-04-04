@@ -27,7 +27,7 @@ require_once('includes/USGSFlowClass.php');
 /*include_once(dirname (__FILE__) . '/includes/flowinstall.php');*/
 include_once('includes/flowinstall.php');
 
-date_default_timezone_set('America/New_York');
+date_default_timezone_set('America/Denver');
 
 if (!class_exists('USGS_Flow_Class')) {
     class USGS_Flow_Class {
@@ -646,7 +646,7 @@ if (!class_exists('USGS_Flow_Class')) {
                         </strong></span><span style="font-size: .7em;">[ click for details ]</span></th>
                         <th class="althage-table-sorter-one"><span style="font-size: 1em;"><strong><span><span>Boatable Flows</span></span></strong></span></th> 
                         <th class="althage-table-sorter-one"><strong><span style="font-size: large;">Weather</span></strong></th> 
-                        <th class="althage-table-sorter-one"><span style="font-size: 1em;"><span><strong>Time from DC</strong><span style="font-size: .7em"><br/>[ the White House ]</span></span></span></th> 
+                        <th class="althage-table-sorter-one althageDisplayNone"><span style="font-size: 1em;"><span><strong>Time from DC</strong><span style="font-size: .7em"><br/>[ the White House ]</span></span></span></th> 
                         </tr>
                         </thead>
                         <tbody>';
@@ -665,10 +665,12 @@ if (!class_exists('USGS_Flow_Class')) {
                             
                             if($rate['siteid'] == 00000000){ $html .='<td>
                                                 <span style="font-size:0; visibility:hidden">3-</span>Visual';}
+                            if($rate['latestlevel'] == -999999){ $html .='<td>
+                                                <span style="font-size:0; visibility:hidden">4-</span>Frozen';}
                             else{
                                 if($rate['latestlevel'] < $rate['lowerlevel'])
                                 {
-                                    $html .= '<td style="text-align:center; background-color:#e74c3c;">
+                                    $html .= '<td class="tooLowColor" style="text-align:center; background-color:#e74c3c;">
                                           <span style="visibility:hidden">2-</span>'; 
                                 }
                                 elseif($rate['latestlevel'] > $rate['upperlevel'])
@@ -676,12 +678,13 @@ if (!class_exists('USGS_Flow_Class')) {
                                     $html .= '<td style="text-align:center; background-color:#3498db;">
                                           <span style="visibility:hidden">1-</span>';
                                 }
+                                
                                 else
                                 {
                                     $html .= '<td style="text-align:center; background-color:#2ecc71;">
                                           <span style="visibility:hidden">0-</span>';
                                 }
-                                $html .= '<a style="color:white;" href="http://waterdata.usgs.gov/usa/nwis/uv?'.$rate['siteid'].'" target="_blank">'.$rate['latestlevel'].' '.$rate['flowtype'].'</a>'; 
+                                $html .= '<a style="color:white;" href="https://waterdata.usgs.gov/usa/nwis/uv?'.$rate['siteid'].'" target="_blank">'.$rate['latestlevel'].' '.$rate['flowtype'].'</a>'; 
                             }
                             
                         if($rate['change'] > 0){
@@ -701,7 +704,7 @@ if (!class_exists('USGS_Flow_Class')) {
                             if($rate['flowtype'] != ''){ $html .= $rate['lowerlevel'].'-'.$rate['upperlevel'].' '.$rate['flowtype'];} else{ $html.="Visual";}
                             $html .='</span></span></td> 
                             <td class="althage-table-sorter-one"><span style="font-size: medium;"><a href="http://'.$rate['weatherurl'].'" target="_blank">'.$rate['weatherlocale'].'</a></span></td> 
-                            <td class="althage-table-sorter-one"><span style="font-size: medium;">'.$rate['travel'].'</span></td> 
+                            <td class="althage-table-sorter-one althageDisplayNone"><span style="font-size: medium;">'.$rate['travel'].'</span></td> 
                             </tr>';
                         }
                             
@@ -821,35 +824,11 @@ return $html;
           global $wpdb;
             
             $rates = $wpdb->get_results("select DISTINCT(a.id), a.name, a.spoturl, a.description, a.upperlevel, a.lowerlevel, a.flowtype, a.ideal, a.class, a.latitude, a.longitude, b.latestlevel, b.weatherurl, b.change, b.weatherlocale from wp_playspots AS a left JOIN wp_flowrates AS b on a.siteid = b.siteid group by a.id order by a.name ASC", ARRAY_A);
-            $lfRate = round($wpdb->get_var("Select distinct latestlevel from wp_flowrates where siteid = 01646500"), 2);
+            $lfRate = round($wpdb->get_var("Select distinct latestlevel from wp_flowrates where siteid = 09361500"), 2);
             
-            $html = '<script type="text/javascript">
-                        jQuery(document).ready(function($) 
-                        { 
-                          $.tablesorter.addParser({ 
-                     // set a unique id 
-                    id: "level", 
-                    is: function(s) { 
-                        // return false so this parser is not auto detected 
-                        return false; 
-                  }, 
-                  format: function(s) { 
-                      // format your data for normalization 
-                      var flow = s.split("-");
-                      
-                      //alert(flow[0].trim());
-                      return flow[0].trim();
-                   }, 
-        // set type, either numeric or text 
-        type: "numeric" 
-    }); 
-    
-                            jQuery("#FlowTable").tablesorter({headers: { 2: { sorter:"level" }}, 
-                                 sortList: [[1,0]] }); 
-                        });
-                    </script> 
-                        <span style="font-size:x-large">Current Level at Little Falls: <a style="font-size:xx-large;" href="http://waterdata.usgs.gov/usa/nwis/uv?01646500">'.$lfRate.'</a></span>
-                    <table id="FlowTable" class="tablesorter" style="line-height: 10px;" border="1"> 
+            $html = '
+                        <span class="althageHeader" style="font-size:x-large;text-align:center;">Current Level of Animas at DGO: <a style="font-size:xx-large;" href="https://waterdata.usgs.gov/usa/nwis/uv?09361500">'.$lfRate.'</a></span>
+                    <table class="playspotstable" style="line-height: 10px;" border="1"> 
                         <thead> 
                         <tr> 
                         <th><span style="font-size: large;"><strong>Spot</strong></span><br /> 
