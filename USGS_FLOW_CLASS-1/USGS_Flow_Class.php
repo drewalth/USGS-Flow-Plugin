@@ -688,10 +688,10 @@ if (!class_exists('USGS_Flow_Class')) {
                             }
                             
                         if($rate['change'] > 0){
-                                $html .='<br/><img class="althage-arrows" src="http://www.dckayak.com/wp-content/uploads/2016/11/new-up-arrow.svg"/><br/><span style="font-size:medium;">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
+                                $html .='<br/><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" xml:space="preserve" width="16" height="16"><g class="nc-icon-wrapper" fill="#ffffff"><path fill="#ffffff" d="M5,9v6c0,0.6,0.4,1,1,1h4c0.6,0,1-0.4,1-1V9h4L8,0L1,9H5z"></path></g></svg><br/><span style="font-size:medium;">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
                         }
                         elseif($rate['change'] < 0){
-                            $html .='<br/><img class="althage-arrows" src="http://www.dckayak.com/wp-content/uploads/2016/11/new-down-arrow.svg"/><br/><span style="font-size:medium;">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
+                            $html .='<br/><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" xml:space="preserve" width="16" height="16"><g class="nc-icon-wrapper" fill="#ffffff"><path fill="#ffffff" d="M11,7V1c0-0.6-0.4-1-1-1L6,0C5.4,0,5,0.4,5,1v6H1l7,9l7-9H11z"></path></g></svg><br/><span style="font-size:medium;">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
                         }
                         else{
                          
