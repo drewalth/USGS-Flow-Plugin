@@ -670,28 +670,28 @@ if (!class_exists('USGS_Flow_Class')) {
                             else{
                                 if($rate['latestlevel'] < $rate['lowerlevel'])
                                 {
-                                    $html .= '<td class="tooLowColor" style="text-align:center; background-color:#e74c3c;">
+                                    $html .= '<td class="tooLow" style="text-align:center;">
                                           <span style="visibility:hidden">2-</span>'; 
                                 }
                                 elseif($rate['latestlevel'] > $rate['upperlevel'])
                                 {
-                                    $html .= '<td style="text-align:center; background-color:#3498db;">
+                                    $html .= '<td class="tooHigh" style="text-align:center;">
                                           <span style="visibility:hidden">1-</span>';
                                 }
                                 
                                 else
                                 {
-                                    $html .= '<td style="text-align:center; background-color:#2ecc71;">
+                                    $html .= '<td class="running" style="text-align:center;">
                                           <span style="visibility:hidden">0-</span>';
                                 }
-                                $html .= '<a style="color:white;" href="https://waterdata.usgs.gov/usa/nwis/uv?'.$rate['siteid'].'" target="_blank">'.$rate['latestlevel'].' '.$rate['flowtype'].'</a>'; 
+                                $html .= '<a href="https://waterdata.usgs.gov/usa/nwis/uv?'.$rate['siteid'].'" target="_blank">'.$rate['latestlevel'].' '.$rate['flowtype'].'</a>'; 
                             }
                             
                         if($rate['change'] > 0){
-                                $html .='<br/><img class="althage-arrows" src="http://www.dckayak.com/wp-content/uploads/2016/11/new-up-arrow.svg"/><br/><span style="font-size:medium; color:white">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
+                                $html .='<br/><img class="althage-arrows" src="http://www.dckayak.com/wp-content/uploads/2016/11/new-up-arrow.svg"/><br/><span style="font-size:medium;">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
                         }
                         elseif($rate['change'] < 0){
-                            $html .='<br/><img class="althage-arrows" src="http://www.dckayak.com/wp-content/uploads/2016/11/new-down-arrow.svg"/><br/><span style="font-size:medium; color:white">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
+                            $html .='<br/><img class="althage-arrows" src="http://www.dckayak.com/wp-content/uploads/2016/11/new-down-arrow.svg"/><br/><span style="font-size:medium;">'.$rate['change'].' '.$rate['flowtype'].'/hr</span></td>';
                         }
                         else{
                          
@@ -863,7 +863,7 @@ return $html;
                                 }
                                 else
                                 {
-                                    $html .= '<td style="text-align:center; background-color:#2ecc71; color:white;">
+                                    $html .= '<td style="text-align:center; background-color:#2ecc71;">
                                           <span style="font-size:0; visibility:hidden">0-</span>';
                                 }
                                 $html .= $rate['ideal'];  
