@@ -1,0 +1,173 @@
+/* CSS for the bootstrap modal */
+
+/* conent and cover IDs change depending on site */
+
+@media screen and (max-width: 414px) {
+  #cover-369,
+  #row_cover {
+    height: 100vh !important;
+  }
+
+  #althageModalTrigger {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+#content_efp1yv3by {
+  padding-top: 0 !important;
+}
+.close {
+  display: none;
+}
+
+.closeBtn {
+  padding: 5px 10px;
+  background-color: #fff;
+  border-radius: 0;
+  border: 1px solid #ccc;
+}
+
+#content_4jfdkq4no {
+  margin-top: 15%;
+}
+
+/* CSS Classes for Accessibility Mode */
+
+.tooLow {
+  background-color: #e74c3c;
+  color: #fff;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.running {
+  color: #fff;
+  background-color: #2ecc71;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+.tooHigh {
+  color: #fff;
+  background-color: #3498db;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.tooLow a,
+.running a,
+.tooHigh a {
+  color: #fff;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.tooLowAccess {
+  color: #000 !important;
+  background-color: #bdbdbd;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.runningAccess {
+  color: #000 !important;
+  background-color: #efefef;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+.tooHighAccess {
+  color: #000 !important;
+  background-color: #8d8d8d;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.tooLowAccess a,
+.runningAccess a,
+.tooHighAccess a {
+  color: #000;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+
+.tooLowAccess svg,
+.runningAccess svg,
+.tooHighAccess svg,
+.tooLowAccess path,
+.runningAccess path,
+.tooHighAccess path {
+  /* Change the svg arrows color */
+  fill: #000;
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.tooLow svg,
+.running svg,
+.tooHigh svg,
+.tooLow path,
+.running path,
+.tooHigh path
+ {
+  /* Adding Ease */
+  transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  -o-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+
+
+.toggleActive {
+  /* keep this at the btm of the custom CSS section*/
+  background-color: #5dade2;
+  color: #fff;
+}
